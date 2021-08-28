@@ -625,8 +625,84 @@ var Selector = React.memo((props) => {
         React.createElement(Container, { colour: [...template, ...colour], select: value, fnSelected: selectColor, fnRemove: removeColour })));
 });
 
+function App(props) {
+    const [value, setValue] = useState("#54478c");
+    const [show, setShow] = useState(false);
+    const refWrap = useRef();
+    const refMenu = useRef();
+    const posScreen = useMemo(() => ({
+        x: 0,
+        y: 0,
+        height: window.innerHeight,
+        width: window.innerWidth,
+    }), []);
+    /**
+     * @param e
+     */
+    const handleClick = useCallback((e) => {
+        const path = e.path || (e.composedPath && e.composedPath()) || [];
+        // Hide path when click outside
+        !path.some((item) => refWrap.current.contains(item.parentNode)) &&
+            hiddenDropdownWhenClick();
+    }, []);
+    /**
+     */
+    const hiddenDropdownWhenClick = useCallback(() => {
+        setShow(false);
+        document.removeEventListener("mouseup", handleClick);
+    }, [handleClick]);
+    const handleChange = useCallback((color) => {
+        setValue(color);
+        props.onChange(color);
+    }, [props.onChange]);
+    useEffect(() => {
+        function display() {
+            var _a;
+            if (((_a = refMenu === null || refMenu === void 0 ? void 0 : refMenu.current) === null || _a === void 0 ? void 0 : _a.clientHeight) > 0) {
+                const posElement = refMenu.current.getBoundingClientRect();
+                let transform = [];
+                let transformOriginY = "left";
+                let transformOriginX = "top";
+                if (posElement.x < 0) {
+                    transform.push("translateX(100%)");
+                    transformOriginY = "top";
+                }
+                else if (posElement.right > posScreen.width - 10) {
+                    transform.push("translateX(-100%)");
+                    transformOriginY = "bottom";
+                }
+                if (posElement.top < 0) {
+                    transform.push(`translateY(calc(100% + ${props.height || 35})`);
+                    transformOriginX = "left";
+                }
+                else if (posElement.bottom > posScreen.height) {
+                    transform.push(`translateY(calc(-100% - ${props.height || 35}px))`);
+                    transformOriginX = "right";
+                }
+                refMenu.current.style.transform = transform.join(" ");
+                refMenu.current.style.visibility = "visible";
+                refMenu.current.style.transformOrigin = `${transformOriginX} ${transformOriginY}`;
+            }
+            if (show) {
+                document.addEventListener("mouseup", handleClick);
+            }
+        }
+        show && setTimeout(() => display(), 100);
+        return () => {
+            document.removeEventListener("mouseup", handleClick);
+        };
+    }, [props.height, show]);
+    useEffect(() => {
+        props.defaultValue && setValue(props.defaultValue);
+    }, [props.defaultValue]);
+    return (React.createElement(MainWrap, { ref: refWrap },
+        React.createElement(MainValue, { color: value, height: props.height || 30, width: props.width || 30, onClick: () => setShow(!show) }),
+        show && (React.createElement(MainSelector, { ref: refMenu, show: true },
+            React.createElement(Selector, { fnSelected: handleChange, select: value })))));
+}
 const MainWrap = styled.div `
   display: block;
+  overflow: hidden;
 `;
 const MainValue = styled.div `
   cursor: pointer;
@@ -647,94 +723,6 @@ const MainSelector = styled.div `
     z-index: 999;
   `};
 `;
-function App(props) {
-    var _a;
-    const [value, setValue] = useState("#54478c");
-    const [show, setShow] = useState(false);
-    const refMenu = useRef();
-    const posScreen = useMemo(() => ({
-        x: 0,
-        y: 0,
-        height: window.innerHeight,
-        width: window.innerWidth,
-    }), []);
-    /**
-     * @param e
-     */
-    const handleClick = useCallback((e) => {
-        let { path } = e;
-        let show = false;
-        path &&
-            path.forEach((item) => {
-                var _a, _b;
-                if ((_a = refMenu === null || refMenu === void 0 ? void 0 : refMenu.current) === null || _a === void 0 ? void 0 : _a.childNodes) {
-                    (_b = refMenu === null || refMenu === void 0 ? void 0 : refMenu.current) === null || _b === void 0 ? void 0 : _b.childNodes.forEach((node) => {
-                        if (node === item)
-                            show = true;
-                    });
-                }
-            });
-        if (!show)
-            hiddenDropdownWhenClick();
-    }, [refMenu === null || refMenu === void 0 ? void 0 : refMenu.current]);
-    /**
-     */
-    const hiddenDropdownWhenClick = useCallback(() => {
-        setShow(false);
-        document.removeEventListener("click", handleClick);
-    }, [handleClick]);
-    const handleChange = useCallback((color) => {
-        setValue(color);
-        props.onChange(color);
-    }, [props.onChange]);
-    useEffect(() => {
-        /**
-         * TODO
-         * Hidden menu when you click in out of menu
-         */
-        if (show) {
-            document.addEventListener("click", handleClick);
-        }
-        return () => {
-            document.removeEventListener("click", handleClick);
-        };
-    }, [show]);
-    useEffect(() => {
-        var _a;
-        if (((_a = refMenu === null || refMenu === void 0 ? void 0 : refMenu.current) === null || _a === void 0 ? void 0 : _a.clientHeight) > 0) {
-            const posElement = refMenu.current.getBoundingClientRect();
-            let transform = [];
-            let transformOriginY = "left";
-            let transformOriginX = "top";
-            if (posElement.x < 0) {
-                transform.push("translateX(100%)");
-                transformOriginY = "top";
-            }
-            else if (posElement.right > posScreen.width - 10) {
-                transform.push("translateX(-100%)");
-                transformOriginY = "bottom";
-            }
-            if (posElement.top < 0) {
-                transform.push(`translateY(calc(100% + ${props.height || 35})`);
-                transformOriginX = "left";
-            }
-            else if (posElement.bottom > posScreen.height) {
-                transform.push(`translateY(calc(-100% - ${props.height || 35}px))`);
-                transformOriginX = "right";
-            }
-            refMenu.current.style.transform = transform.join(" ");
-            refMenu.current.style.visibility = "visible";
-            refMenu.current.style.transformOrigin = `${transformOriginX} ${transformOriginY}`;
-        }
-    }, [(_a = refMenu === null || refMenu === void 0 ? void 0 : refMenu.current) === null || _a === void 0 ? void 0 : _a.clientHeight, props.height]);
-    useEffect(() => {
-        props.defaultValue && setValue(props.defaultValue);
-    }, [props.defaultValue]);
-    return (React.createElement(MainWrap, null,
-        React.createElement(MainValue, { color: value, height: props.height || 30, width: props.width || 30, onClick: () => setShow(!show) }),
-        show && (React.createElement(MainSelector, { ref: refMenu, show: true },
-            React.createElement(Selector, { fnSelected: handleChange, select: value })))));
-}
 
 export default App;
 //# sourceMappingURL=index.es.js.map

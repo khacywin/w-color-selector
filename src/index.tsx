@@ -30,7 +30,10 @@ interface Props {
 function App(props: Props) {
   const [value, setValue] = useState("#54478c");
   const [show, setShow] = useState(false);
+
+  const refWrap = useRef<HTMLDivElement>();
   const refMenu = useRef<HTMLDivElement>();
+
   const posScreen = useMemo(
     () => ({
       x: 0,
@@ -44,30 +47,19 @@ function App(props: Props) {
   /**
    * @param e
    */
-  const handleClick = useCallback(
-    (e: any) => {
-      let { path } = e;
-      let show = false;
+  const handleClick = useCallback((e: any) => {
+    const path = e.path || (e.composedPath && e.composedPath()) || [];
 
-      path &&
-        path.forEach((item: any) => {
-          if (refMenu?.current?.childNodes) {
-            refMenu?.current?.childNodes.forEach((node: any) => {
-              if (node === item) show = true;
-            });
-          }
-        });
-
-      if (!show) hiddenDropdownWhenClick();
-    },
-    [refMenu?.current]
-  );
+    // Hide path when click outside
+    !path.some((item: any) => refWrap.current.contains(item.parentNode)) &&
+      hiddenDropdownWhenClick();
+  }, []);
 
   /**
    */
   const hiddenDropdownWhenClick = useCallback(() => {
     setShow(false);
-    document.removeEventListener("click", handleClick);
+    document.removeEventListener("mouseup", handleClick);
   }, [handleClick]);
 
   const handleChange = useCallback(
@@ -77,20 +69,6 @@ function App(props: Props) {
     },
     [props.onChange]
   );
-
-  useEffect(() => {
-    /**
-     * TODO
-     * Hidden menu when you click in out of menu
-     */
-    if (show) {
-      document.addEventListener("click", handleClick);
-    }
-
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  }, [show]);
 
   useEffect(() => {
     function display() {
@@ -120,9 +98,17 @@ function App(props: Props) {
         refMenu.current.style.visibility = "visible";
         refMenu.current.style.transformOrigin = `${transformOriginX} ${transformOriginY}`;
       }
+
+      if (show) {
+        document.addEventListener("mouseup", handleClick);
+      }
     }
 
     show && setTimeout(() => display(), 100);
+
+    return () => {
+      document.removeEventListener("mouseup", handleClick);
+    };
   }, [props.height, show]);
 
   useEffect(() => {
@@ -130,7 +116,7 @@ function App(props: Props) {
   }, [props.defaultValue]);
 
   return (
-    <MainWrap>
+    <MainWrap ref={refWrap}>
       <MainValue
         color={value}
         height={props.height || 30}
