@@ -1,48 +1,25 @@
 import React, {
-  useState,
-  useEffect,
-  useRef,
-  useMemo,
   useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from "react";
-import styled from "styled-components";
+
+import Selector from "./Selector";
 import _key from "./util/_key";
 import _t from "./util/_t";
-import Selector from "./Selector";
-
-const MainWrap = styled.div`
-  display: block;
-`;
+import styled from "styled-components";
 
 interface PropsMainValue {
   color?: string;
   height?: number;
   width?: number;
 }
-const MainValue = styled.div<PropsMainValue>`
-  cursor: pointer;
-  border-radius: 5px;
-  ${(props) => `
-    width: ${props.width}px;
-    height: ${props.height}px;
-    background-color: ${props.color};
-  `}
-`;
 
 interface PropsMainSelector {
   show: boolean;
 }
-const MainSelector = styled.div<PropsMainSelector>`
-  position: absolute;
-  z-index: -1;
-  visibility: hidden;
-
-  ${({ show }) =>
-    show &&
-    `
-    z-index: 999;
-  `};
-`;
 
 interface Props {
   onChange: (value: string) => void;
@@ -116,33 +93,37 @@ function App(props: Props) {
   }, [show]);
 
   useEffect(() => {
-    if (refMenu?.current?.clientHeight > 0) {
-      const posElement = refMenu.current.getBoundingClientRect();
-      let transform = [];
-      let transformOriginY = "left";
-      let transformOriginX = "top";
+    function display() {
+      if (refMenu?.current?.clientHeight > 0) {
+        const posElement = refMenu.current.getBoundingClientRect();
+        let transform = [];
+        let transformOriginY = "left";
+        let transformOriginX = "top";
 
-      if (posElement.x < 0) {
-        transform.push("translateX(100%)");
-        transformOriginY = "top";
-      } else if (posElement.right > posScreen.width - 10) {
-        transform.push("translateX(-100%)");
-        transformOriginY = "bottom";
+        if (posElement.x < 0) {
+          transform.push("translateX(100%)");
+          transformOriginY = "top";
+        } else if (posElement.right > posScreen.width - 10) {
+          transform.push("translateX(-100%)");
+          transformOriginY = "bottom";
+        }
+
+        if (posElement.top < 0) {
+          transform.push(`translateY(calc(100% + ${props.height || 35})`);
+          transformOriginX = "left";
+        } else if (posElement.bottom > posScreen.height) {
+          transform.push(`translateY(calc(-100% - ${props.height || 35}px))`);
+          transformOriginX = "right";
+        }
+
+        refMenu.current.style.transform = transform.join(" ");
+        refMenu.current.style.visibility = "visible";
+        refMenu.current.style.transformOrigin = `${transformOriginX} ${transformOriginY}`;
       }
-
-      if (posElement.top < 0) {
-        transform.push(`translateY(calc(100% + ${props.height || 35})`);
-        transformOriginX = "left";
-      } else if (posElement.bottom > posScreen.height) {
-        transform.push(`translateY(calc(-100% - ${props.height || 35}px))`);
-        transformOriginX = "right";
-      }
-
-      refMenu.current.style.transform = transform.join(" ");
-      refMenu.current.style.visibility = "visible";
-      refMenu.current.style.transformOrigin = `${transformOriginX} ${transformOriginY}`;
     }
-  }, [refMenu?.current?.clientHeight, props.height]);
+
+    show && setTimeout(() => display(), 100);
+  }, [props.height, show]);
 
   useEffect(() => {
     props.defaultValue && setValue(props.defaultValue);
@@ -166,3 +147,30 @@ function App(props: Props) {
 }
 
 export default App;
+
+const MainWrap = styled.div`
+  display: block;
+  overflow: hidden;
+`;
+
+const MainValue = styled.div<PropsMainValue>`
+  cursor: pointer;
+  border-radius: 5px;
+  ${(props) => `
+    width: ${props.width}px;
+    height: ${props.height}px;
+    background-color: ${props.color};
+  `}
+`;
+
+const MainSelector = styled.div<PropsMainSelector>`
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+
+  ${({ show }) =>
+    show &&
+    `
+    z-index: 999;
+  `};
+`;
