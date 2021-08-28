@@ -1,6 +1,6 @@
 {
   "name": "w-color-selector",
-  "version": "1.2.21",
+  "version": "1.2.22",
   "description": "React component",
   "main": "build/index.js",
   "types": "build/App.d.ts",
