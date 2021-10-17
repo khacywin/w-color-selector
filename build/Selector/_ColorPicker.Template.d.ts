@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 interface Props {
     h: number;
     s: number;

@@ -10,18 +10,6 @@ var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 
 const WColor = styled__default['default'].div `
   position: relative;
-  box-sizing: border-box;
-  border-radius: .5em;
-  width: 15em;
-  padding: .5em;
-  ${props => props.dark ? `
-    background-color: #1a1a1a;
-    color: #fff;
-  ` : `
-    background-color: #fff;
-    color: inherit;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);
-  `}
 `;
 const WColorHeading = styled__default['default'].div `
   font-size: .8em;
@@ -73,126 +61,6 @@ const WColorAdd = styled__default['default'].button `
   }
 `;
 
-var img = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='iso-8859-1'%3f%3e%3c!-- Generator: Adobe Illustrator 19.0.0%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 496 496' style='enable-background:new 0 0 496 496%3b' xml:space='preserve'%3e%3cg%3e %3cg%3e %3cpath d='M488%2c240H256V8c0-4.418-3.582-8-8-8s-8%2c3.582-8%2c8v232H8c-4.418%2c0-8%2c3.582-8%2c8s3.582%2c8%2c8%2c8h232v232c0%2c4.418%2c3.582%2c8%2c8%2c8 s8-3.582%2c8-8V256h232c4.418%2c0%2c8-3.582%2c8-8S492.418%2c240%2c488%2c240z'/%3e %3c/g%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3c/svg%3e";
-
-function _t (text, language = 'en') {
-    return text;
-}
-
-const WColorContainer = styled__default['default'].div `
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-`;
-const KeyframesActive = styled.keyframes `
-  0%{
-    transform: scale(.6);
-  }
-  20%{
-    transform: scale(.8);
-  }
-  100%{
-    transform: scale(1);
-  }
-`;
-const CSSActive = styled.css `
-  &::before{
-    animation: ${KeyframesActive} 0.3s linear both;
-  }
-`;
-const KeyframesItem = styled.keyframes `
-  0%{
-    transform: scale(.2);
-  }
-  70%{
-    transform: scale(.9);
-  }
-  100%{
-    transform: scale(.8);
-  }
-`;
-const WColorItemWrap = styled__default['default'].div `
-  position: relative;
-  width: 1.4em;
-  height: 1.4em;
-  margin: .3em;
-  box-sizing: border-box;
-
-  &:hover button{
-    display: initial;
-  }
-  button{
-    position: absolute;
-    display: none;
-    z-index: 100;
-    top: 0;
-    right: 1px;
-    width: 10px;
-    height: 10px;
-    padding: 0;
-    background-color: #fff;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-
-    &:focus{
-      outline: 0;
-    }
-
-
-    img{
-      transform: translate(0, -2px) scale(.9);
-    }
-  }
-
-`;
-const WColorItem = styled__default['default'].div `
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border-radius: 0.4em;
-  background-color: inherit;
-
-  &::before{
-    position: absolute;
-    content: '';
-    border-radius: 0.2em;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left:0;
-    transform: scale(0.8);
-    transition: all 0.2s linear;
-    background-color: ${props => props.color};
-    z-index: 10;
-    animation: ${KeyframesItem} 0.2s linear;
-  }
-
-  &:hover{
-    &::before{
-      transform: scale(0.9);
-    }
-  }
-  
-  ${props => props.active && CSSActive}
-`;
-
-let key = 0;
-function _key () {
-    return 'w-color-' + key + '-';
-}
-
-var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e%3c!-- Generator: Adobe Illustrator 22.0.1%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 32 32' style='enable-background:new 0 0 32 32%3b' xml:space='preserve'%3e%3cstyle type='text/css'%3e .st0%7bfill:%23010101%3bstroke:black%3bstroke-width:2%3bstroke-miterlimit:10%3b%7d%3c/style%3e%3cpolygon class='st0' points='26%2c5.6 16.2%2c15.5 6.3%2c5.6 5.6%2c6.3 15.5%2c16.2 5.6%2c26.1 6.3%2c26.7 16.2%2c16.8 26%2c26.7 26.7%2c26.1 16.8%2c16.2 26.7%2c6.3 '/%3e%3c/svg%3e";
-
-var Container = React__default['default'].memo((props) => {
-    const _keyWColor = _key();
-    return (React__default['default'].createElement(WColorContainer, null, props.colour.map((color, key) => (React__default['default'].createElement(WColorItemWrap, { key: `${_keyWColor}-${key}` },
-        React__default['default'].createElement(WColorItem, { color: color, active: color === props.select, onClick: () => props.fnSelected(color), onDoubleClick: () => props.fnRemove(color) }),
-        key > 9 && (React__default['default'].createElement("button", { onClick: () => props.fnRemove(color), type: 'button' },
-            React__default['default'].createElement("img", { src: img$1, alt: 'w-color' }))))))));
-});
-
 const WColorPicker = styled__default['default'].div `
   margin: 0 0 0.4em 0;
   border-bottom: 1px solid #e9e9e9;
@@ -236,144 +104,6 @@ const WColorPickerControlValue = styled__default['default'].div.attrs(props => (
   height: 20px;
   border-radius: 50%;
 `;
-
-var Template = React__default['default'].memo((props) => {
-    const refCircleSelect = React.useRef();
-    const refColorPickerBox = React.useRef();
-    const [cCircleSelect, setCCircleSelect] = React.useState([50, 50]);
-    let widthBox = 0;
-    let heightBox = 0;
-    let isMousedown = false;
-    React.useEffect(() => {
-        // Event mouse down for circle selected
-        refCircleSelect.current.addEventListener('mousedown', function () {
-            isMousedown = true;
-        });
-        // Event mouse up for circle selected
-        refCircleSelect.current.addEventListener('mouseup', function () {
-            if (isMousedown)
-                isMousedown = false;
-        });
-        // Event mouse move
-        refColorPickerBox.current.addEventListener('mousemove', handleMoveCircleSelect);
-        // Event mouse leave
-        refColorPickerBox.current.addEventListener('mouseleave', () => {
-            document.addEventListener('mouseup', () => {
-                if (isMousedown)
-                    isMousedown = false;
-            });
-        });
-        refColorPickerBox.current.addEventListener('click', (e) => handleMoveCircleSelect(e, true));
-    }, []);
-    React.useEffect(() => {
-        /**
-         * set value HSL
-         */
-        let { s, l } = props;
-        widthBox = refColorPickerBox.current.width.baseVal.value;
-        heightBox = refColorPickerBox.current.height.baseVal.value;
-        // Calculating y value
-        const percentY = 100 - (l / (100 - s / 2)) * 100;
-        let y = (heightBox / 100) * percentY + 14;
-        // Calculating x value
-        let x = (widthBox / 100) * s + 14;
-        setCCircleSelect([x, y]); // set position of circle select
-    }, [props.h, props.s, props.l]);
-    function handleMoveCircleSelect(e, isClick = false) {
-        // Get offset of mouse event
-        if (isMousedown || isClick) {
-            const _offset = [e.offsetX, e.offsetY];
-            const SPercent = Math.round(((_offset[0] - 15) / widthBox) * 100);
-            // Calculating the X and Y Percent Values
-            const percentX = 100 - SPercent / 2;
-            const percentY = 100 - ((_offset[1] - 15) / heightBox) * 100;
-            // Calculating the LPercent
-            // LPercent is the the X percentage of the of the Y percentage of the dragger
-            const LPercent = Math.floor((percentY / 100) * percentX);
-            // setCCircleSelect(_offset);
-            props.change(SPercent, LPercent);
-        }
-    }
-    return (React__default['default'].createElement(WColorPickerTemplate, null,
-        React__default['default'].createElement("svg", { width: '100%', height: '120' },
-            React__default['default'].createElement("defs", null,
-                React__default['default'].createElement("linearGradient", { id: 'saturation', x1: '0%', y1: '0%', x2: '100%', y2: '0%' },
-                    React__default['default'].createElement("stop", { offset: '0%', stopColor: '#fff' }),
-                    React__default['default'].createElement("stop", { offset: '100%', stopColor: `hsl(${props.h},100%,50%)` })),
-                React__default['default'].createElement("linearGradient", { id: 'brightness', x1: '0%', y1: '0%', x2: '0%', y2: '100%' },
-                    React__default['default'].createElement("stop", { offset: '0%', stopColor: 'rgba(0,0,0,0)' }),
-                    React__default['default'].createElement("stop", { offset: '100%', stopColor: '#000' })),
-                React__default['default'].createElement("pattern", { id: 'pattern_config', width: '100%', height: '100%' },
-                    React__default['default'].createElement("rect", { x: '0', y: '0', width: '100%', height: '100%', fill: 'url(#saturation)' }),
-                    React__default['default'].createElement("rect", { x: '0', y: '0', width: '100%', height: '100%', fill: 'url(#brightness)' }))),
-            React__default['default'].createElement("rect", { ref: refColorPickerBox, rx: '5', ry: '5', x: '1', y: '1', width: '100%', height: '100%', stroke: '#fff', strokeWidth: '2', fill: 'url(#pattern_config)' }),
-            React__default['default'].createElement("circle", { ref: refCircleSelect, cx: cCircleSelect[0], cy: cCircleSelect[1], r: '5', stroke: 'white', strokeWidth: '2', fill: 'transparent' }))));
-});
-
-var Slider = React__default['default'].memo((props) => {
-    const refSliderSelect = React.useRef();
-    const refSliderBox = React.useRef();
-    const [cSelect, setSelect] = React.useState(1);
-    let isMousedownSlider = false;
-    let widthBox = 0;
-    React.useEffect(() => {
-        // Event mouse down for circle selected
-        refSliderSelect.current.addEventListener('mousedown', function () {
-            isMousedownSlider = true;
-        });
-        // Event mouse up for circle selected
-        refSliderSelect.current.addEventListener('mouseup', function () {
-            if (isMousedownSlider)
-                isMousedownSlider = false;
-        });
-        // Event mouse move
-        refSliderBox.current.addEventListener('mousemove', handleMoveCircleSelect);
-        // Event mouse leave
-        refSliderBox.current.addEventListener('mouseleave', (event) => {
-            document.addEventListener('mouseup', () => {
-                if (isMousedownSlider)
-                    isMousedownSlider = false;
-            });
-        });
-        refSliderBox.current.addEventListener('click', (e) => handleMoveCircleSelect(e, true));
-    }, []);
-    React.useEffect(() => {
-        widthBox = refSliderBox.current.width.baseVal.value;
-        setSelect(convertHueToPosition(props.h));
-    }, [props.h]);
-    function convertPositionToHue(pos) {
-        const percent = (pos / widthBox) * 100;
-        // Calculating the color
-        // Max number for hue colors is 359, I find the percentage of this, from the percent variable
-        // I take it away from the max number because the slider should work backwards
-        return Math.round(359 - (359 / 100) * percent);
-    }
-    function convertHueToPosition(hue) {
-        let percentHue = 100 - (hue / 359) * 100;
-        let pos = (widthBox / 100) * percentHue - 5;
-        return pos;
-    }
-    function handleMoveCircleSelect(e, isClick = false) {
-        let _c = e.offsetX;
-        if (isClick || isMousedownSlider) {
-            props.change(convertPositionToHue(_c));
-            // setSelect(_c);
-        }
-    }
-    return (React__default['default'].createElement(WColorPickerBar, null,
-        React__default['default'].createElement("svg", { width: '100%', height: '26' },
-            React__default['default'].createElement("defs", null,
-                React__default['default'].createElement("linearGradient", { id: 'hue', x1: '100%', y1: '0%', x2: '0%', y2: '0%' },
-                    React__default['default'].createElement("stop", { offset: '0%', stopColor: '#f00' }),
-                    React__default['default'].createElement("stop", { offset: '16.666%', stopColor: '#ff0' }),
-                    React__default['default'].createElement("stop", { offset: '33.333%', stopColor: '#0f0' }),
-                    React__default['default'].createElement("stop", { offset: '50%', stopColor: '#0ff' }),
-                    React__default['default'].createElement("stop", { offset: '66.666%', stopColor: '#00f' }),
-                    React__default['default'].createElement("stop", { offset: '83.333%', stopColor: '#f0f' }),
-                    React__default['default'].createElement("stop", { offset: '100%', stopColor: '#f00' }))),
-            React__default['default'].createElement("rect", { ref: refSliderBox, rx: '5', ry: '5', x: '0', y: '1', width: '100%', height: '20', stroke: '#fff', strokeWidth: '2', fill: 'url(#hue)' }),
-            React__default['default'].createElement("rect", { ref: refSliderSelect, width: '5', height: '22', stroke: '#000', strokeWidth: '2', fill: 'transparent', rx: '5', ry: '5', x: cSelect, y: '0' }))));
-});
 
 /*
  * Color Value Converter
@@ -534,13 +264,177 @@ var Control = React__default['default'].memo((props) => {
         React__default['default'].createElement("input", { ref: refInput, type: 'text', id: 'wColorPickerValueHEX', value: value, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: handleChange })));
 });
 
-var ColorPicker = React__default['default'].memo((props) => {
+var Slider = React__default['default'].memo((props) => {
+    const refSliderSelect = React.useRef();
+    const refSliderBox = React.useRef();
+    const [cSelect, setSelect] = React.useState(1);
+    let isMousedownSlider = false;
+    function convertPositionToHue(pos) {
+        const widthBox = refSliderBox.current.width.baseVal.value;
+        const percent = (pos / widthBox) * 100;
+        // Calculating the color
+        // Max number for hue colors is 359, I find the percentage of this, from the percent variable
+        // I take it away from the max number because the slider should work backwards
+        return Math.round(359 - (359 / 100) * percent);
+    }
+    function convertHueToPosition(hue) {
+        const widthBox = refSliderBox.current.width.baseVal.value;
+        let percentHue = 100 - (hue / 359) * 100;
+        let pos = (widthBox / 100) * percentHue - 5;
+        return pos;
+    }
+    function handleMoveCircleSelect(e, isClick = false) {
+        let _c = e.offsetX;
+        if (isClick || isMousedownSlider) {
+            props.change(convertPositionToHue(_c));
+            // setSelect(_c);
+        }
+    }
+    React.useEffect(() => {
+        // Event mouse down for circle selected
+        const onMousedown = () => {
+            isMousedownSlider = true;
+        };
+        refSliderSelect.current.addEventListener("mousedown", onMousedown);
+        // Event mouse up for circle selected
+        const onMouseup = () => {
+            if (isMousedownSlider)
+                isMousedownSlider = false;
+        };
+        refSliderSelect.current.addEventListener("mouseup", onMouseup);
+        // Event mouse move
+        refSliderBox.current.addEventListener("mousemove", handleMoveCircleSelect);
+        // Event mouse leave
+        const onMouseleave = () => {
+            document.addEventListener("mouseup", onMouseup);
+        };
+        refSliderBox.current.addEventListener("mouseleave", onMouseleave);
+        // Handle click
+        const onClick = (e) => {
+            handleMoveCircleSelect(e, true);
+        };
+        refSliderBox.current.addEventListener("click", onClick);
+        return () => {
+            var _a, _b, _d, _e, _f;
+            (_a = refSliderSelect.current) === null || _a === void 0 ? void 0 : _a.removeEventListener("mousedown", onMousedown);
+            (_b = refSliderSelect.current) === null || _b === void 0 ? void 0 : _b.removeEventListener("mouseup", onMouseup);
+            (_d = refSliderBox.current) === null || _d === void 0 ? void 0 : _d.removeEventListener("mousemove", handleMoveCircleSelect);
+            (_e = refSliderBox.current) === null || _e === void 0 ? void 0 : _e.removeEventListener("mouseleave", onMouseleave);
+            (_f = refSliderBox.current) === null || _f === void 0 ? void 0 : _f.removeEventListener("click", onClick);
+        };
+    }, []);
+    React.useEffect(() => {
+        const widthBox = refSliderBox.current.width.baseVal.value;
+        setSelect(convertHueToPosition(props.h));
+    }, [props.h]);
+    return (React__default['default'].createElement(WColorPickerBar, null,
+        React__default['default'].createElement("svg", { width: "100%", height: "26" },
+            React__default['default'].createElement("defs", null,
+                React__default['default'].createElement("linearGradient", { id: "hue", x1: "100%", y1: "0%", x2: "0%", y2: "0%" },
+                    React__default['default'].createElement("stop", { offset: "0%", stopColor: "#f00" }),
+                    React__default['default'].createElement("stop", { offset: "16.666%", stopColor: "#ff0" }),
+                    React__default['default'].createElement("stop", { offset: "33.333%", stopColor: "#0f0" }),
+                    React__default['default'].createElement("stop", { offset: "50%", stopColor: "#0ff" }),
+                    React__default['default'].createElement("stop", { offset: "66.666%", stopColor: "#00f" }),
+                    React__default['default'].createElement("stop", { offset: "83.333%", stopColor: "#f0f" }),
+                    React__default['default'].createElement("stop", { offset: "100%", stopColor: "#f00" }))),
+            React__default['default'].createElement("rect", { ref: refSliderBox, rx: "5", ry: "5", x: "0", y: "1", width: "100%", height: "20", stroke: "#fff", strokeWidth: "2", fill: "url(#hue)" }),
+            React__default['default'].createElement("rect", { ref: refSliderSelect, width: "5", height: "22", stroke: "#000", strokeWidth: "2", fill: "transparent", rx: "5", ry: "5", x: cSelect, y: "0" }))));
+});
+
+var Template = React__default['default'].memo((props) => {
+    const refCircleSelect = React.useRef();
+    const refColorPickerBox = React.useRef();
+    const [circleSelect, setCircleSelect] = React.useState([50, 50]);
+    let isMousedown = false;
+    function handleMoveCircleSelect(e, isClick = false) {
+        // Get offset of mouse event
+        if (isMousedown || isClick) {
+            const widthBox = refColorPickerBox.current.width.baseVal.value;
+            const heightBox = refColorPickerBox.current.height.baseVal.value;
+            const _offset = [e.offsetX, e.offsetY];
+            const SPercent = Math.round(((_offset[0] - 15) / widthBox) * 100);
+            // Calculating the X and Y Percent Values
+            const percentX = 100 - SPercent / 2;
+            const percentY = 100 - ((_offset[1] - 15) / heightBox) * 100;
+            // Calculating the LPercent
+            // LPercent is the the X percentage of the of the Y percentage of the dragger
+            const LPercent = Math.floor((percentY / 100) * percentX);
+            // setCCircleSelect(_offset);
+            props.change(SPercent, LPercent);
+        }
+    }
+    React.useEffect(() => {
+        // Event mouse down for circle selected
+        const onMousedown = () => {
+            isMousedown = true;
+        };
+        refCircleSelect.current.addEventListener("mousedown", onMousedown);
+        // Event mouse up for circle selected
+        const onMouseup = () => {
+            if (isMousedown)
+                isMousedown = false;
+        };
+        refCircleSelect.current.addEventListener("mouseup", onMouseup);
+        // Event mouse move
+        refColorPickerBox.current.addEventListener("mousemove", handleMoveCircleSelect);
+        // Event mouse leave
+        // Event mouse leave
+        const onMouseleave = () => {
+            document.addEventListener("mouseup", onMouseup);
+        };
+        refColorPickerBox.current.addEventListener("mouseleave", onMouseleave);
+        const onClick = (e) => {
+            handleMoveCircleSelect(e, true);
+        };
+        refColorPickerBox.current.addEventListener("click", onClick);
+        return () => {
+            var _a, _b, _c, _d, _e;
+            (_a = refCircleSelect.current) === null || _a === void 0 ? void 0 : _a.removeEventListener("mousedown", onMousedown);
+            (_b = refCircleSelect.current) === null || _b === void 0 ? void 0 : _b.removeEventListener("mouseup", onMouseup);
+            (_c = refColorPickerBox.current) === null || _c === void 0 ? void 0 : _c.removeEventListener("mousemove", handleMoveCircleSelect);
+            (_d = refColorPickerBox.current) === null || _d === void 0 ? void 0 : _d.removeEventListener("mouseleave", onMouseleave);
+            (_e = refColorPickerBox.current) === null || _e === void 0 ? void 0 : _e.removeEventListener("click", onClick);
+        };
+    }, []);
+    React.useEffect(() => {
+        /**
+         * set value HSL
+         */
+        let { s, l } = props;
+        const widthBox = refColorPickerBox.current.width.baseVal.value;
+        const heightBox = refColorPickerBox.current.height.baseVal.value;
+        // Calculating y value
+        const percentY = 100 - (l / (100 - s / 2)) * 100;
+        let y = (heightBox / 100) * percentY + 14;
+        // Calculating x value
+        let x = (widthBox / 100) * s + 14;
+        setCircleSelect([x, y]); // set position of circle select
+    }, [props.h, props.s, props.l]);
+    return (React__default['default'].createElement(WColorPickerTemplate, null,
+        React__default['default'].createElement("svg", { width: "100%", height: "120" },
+            React__default['default'].createElement("defs", null,
+                React__default['default'].createElement("linearGradient", { id: "saturation", x1: "0%", y1: "0%", x2: "100%", y2: "0%" },
+                    React__default['default'].createElement("stop", { offset: "0%", stopColor: "#fff" }),
+                    React__default['default'].createElement("stop", { offset: "100%", stopColor: `hsl(${props.h},100%,50%)` })),
+                React__default['default'].createElement("linearGradient", { id: "brightness", x1: "0%", y1: "0%", x2: "0%", y2: "100%" },
+                    React__default['default'].createElement("stop", { offset: "0%", stopColor: "rgba(0,0,0,0)" }),
+                    React__default['default'].createElement("stop", { offset: "100%", stopColor: "#000" })),
+                React__default['default'].createElement("pattern", { id: "pattern_config", width: "100%", height: "100%" },
+                    React__default['default'].createElement("rect", { x: "0", y: "0", width: "100%", height: "100%", fill: "url(#saturation)" }),
+                    React__default['default'].createElement("rect", { x: "0", y: "0", width: "100%", height: "100%", fill: "url(#brightness)" }))),
+            React__default['default'].createElement("rect", { ref: refColorPickerBox, rx: "5", ry: "5", x: "1", y: "1", width: "100%", height: "100%", stroke: "#fff", strokeWidth: "2", fill: "url(#pattern_config)" }),
+            React__default['default'].createElement("circle", { ref: refCircleSelect, cx: circleSelect[0], cy: circleSelect[1], r: "5", stroke: "white", strokeWidth: "2", fill: "transparent" }))));
+});
+
+function _t (text, language = 'en') {
+    return text;
+}
+
+var ColorPicker = React__default['default'].memo(({ hex }) => {
     const [hue, setHue] = React.useState(0);
     const [saturation, setSaturation] = React.useState(12);
     const [lightness, setLightness] = React.useState(47);
-    React.useEffect(() => {
-        props.hex(HSLAToRGBA(hue, saturation, lightness, 1, true)); // Return color for parent component
-    }, [hue, saturation, lightness]);
     const changeColorSL = (s, l) => {
         setSaturation(s);
         setLightness(l);
@@ -553,12 +447,131 @@ var ColorPicker = React__default['default'].memo((props) => {
     const changeColorHue = (h) => {
         setHue(h);
     };
+    React.useEffect(() => {
+        hex(HSLAToRGBA(hue, saturation, lightness, 1, true)); // Return color for parent component
+    }, [hex, hue, saturation, lightness]);
     return (React__default['default'].createElement(WColorPicker, null,
-        React__default['default'].createElement(WColorHeading, null, _t('Color picker')),
+        React__default['default'].createElement(WColorHeading, null, _t("Color picker")),
         React__default['default'].createElement(Template, { h: hue, s: saturation, l: lightness, change: changeColorSL }),
         React__default['default'].createElement(Slider, { h: hue, change: changeColorHue }),
         React__default['default'].createElement(Control, { h: hue, s: saturation, l: lightness, change: changeColorHex })));
 });
+
+const WColorContainer = styled__default['default'].div `
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+const KeyframesActive = styled.keyframes `
+  0%{
+    transform: scale(.6);
+  }
+  20%{
+    transform: scale(.8);
+  }
+  100%{
+    transform: scale(1);
+  }
+`;
+const CSSActive = styled.css `
+  &::before{
+    animation: ${KeyframesActive} 0.3s linear both;
+  }
+`;
+const KeyframesItem = styled.keyframes `
+  0%{
+    transform: scale(.2);
+  }
+  70%{
+    transform: scale(.9);
+  }
+  100%{
+    transform: scale(.8);
+  }
+`;
+const WColorItemWrap = styled__default['default'].div `
+  position: relative;
+  width: 1.4em;
+  height: 1.4em;
+  margin: .3em;
+  box-sizing: border-box;
+
+  &:hover button{
+    display: initial;
+  }
+  button{
+    position: absolute;
+    display: none;
+    z-index: 100;
+    top: 0;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:focus{
+      outline: 0;
+    }
+
+
+    img{
+      transform: translate(0, -2px) scale(.9);
+    }
+  }
+
+`;
+const WColorItem = styled__default['default'].div `
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 0.4em;
+  background-color: inherit;
+
+  &::before{
+    position: absolute;
+    content: '';
+    border-radius: 0.2em;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    transform: scale(0.8);
+    transition: all 0.2s linear;
+    background-color: ${props => props.color};
+    z-index: 10;
+    animation: ${KeyframesItem} 0.2s linear;
+  }
+
+  &:hover{
+    &::before{
+      transform: scale(0.9);
+    }
+  }
+  
+  ${props => props.active && CSSActive}
+`;
+
+let key = 0;
+function _key () {
+    return 'w-color-' + key + '-';
+}
+
+var img = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e%3c!-- Generator: Adobe Illustrator 22.0.1%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 32 32' style='enable-background:new 0 0 32 32%3b' xml:space='preserve'%3e%3cstyle type='text/css'%3e .st0%7bfill:%23010101%3bstroke:black%3bstroke-width:2%3bstroke-miterlimit:10%3b%7d%3c/style%3e%3cpolygon class='st0' points='26%2c5.6 16.2%2c15.5 6.3%2c5.6 5.6%2c6.3 15.5%2c16.2 5.6%2c26.1 6.3%2c26.7 16.2%2c16.8 26%2c26.7 26.7%2c26.1 16.8%2c16.2 26.7%2c6.3 '/%3e%3c/svg%3e";
+
+var Container = React__default['default'].memo((props) => {
+    const _keyWColor = _key();
+    return (React__default['default'].createElement(WColorContainer, null, props.colour.map((color, key) => (React__default['default'].createElement(WColorItemWrap, { key: `${_keyWColor}-${key}` },
+        React__default['default'].createElement(WColorItem, { color: color, active: color === props.select, onClick: () => props.fnSelected(color), onDoubleClick: () => props.fnRemove(color) }),
+        key > 9 && (React__default['default'].createElement("button", { onClick: () => props.fnRemove(color), type: 'button' },
+            React__default['default'].createElement("img", { src: img, alt: 'w-color' }))))))));
+});
+
+var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='iso-8859-1'%3f%3e%3c!-- Generator: Adobe Illustrator 19.0.0%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 496 496' style='enable-background:new 0 0 496 496%3b' xml:space='preserve'%3e%3cg%3e %3cg%3e %3cpath d='M488%2c240H256V8c0-4.418-3.582-8-8-8s-8%2c3.582-8%2c8v232H8c-4.418%2c0-8%2c3.582-8%2c8s3.582%2c8%2c8%2c8h232v232c0%2c4.418%2c3.582%2c8%2c8%2c8 s8-3.582%2c8-8V256h232c4.418%2c0%2c8-3.582%2c8-8S492.418%2c240%2c488%2c240z'/%3e %3c/g%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3c/svg%3e";
 
 var Selector = React__default['default'].memo((props) => {
     const [hex, setHex] = React.useState('#866969');
@@ -596,7 +609,6 @@ var Selector = React__default['default'].memo((props) => {
         }
     }
     function addColour(color) {
-        setValue(color);
         if (template.indexOf(color) < 0 && colour.indexOf(color) < 0) {
             let _colour = [...colour, color];
             setColour(_colour);
@@ -622,13 +634,14 @@ var Selector = React__default['default'].memo((props) => {
     function selectColor(color) {
         setValue(color);
         props.fnSelected(color);
+        props.fnClosePopup();
     }
-    return (React__default['default'].createElement(WColor, { dark: !!props.dark },
+    return (React__default['default'].createElement(WColor, null,
         React__default['default'].createElement(ColorPicker, { hex: (color) => setHex(color) }),
         React__default['default'].createElement(WColorHeading, null,
             _t('Recent'),
             React__default['default'].createElement(WColorAdd, { type: 'button', onClick: () => addColour(hex) },
-                React__default['default'].createElement("img", { src: img, alt: 'w-color' }))),
+                React__default['default'].createElement("img", { src: img$1, alt: 'w-color' }))),
         React__default['default'].createElement(Container, { colour: [...template, ...colour], select: value, fnSelected: selectColor, fnRemove: removeColour })));
 });
 
@@ -702,10 +715,13 @@ function App(props) {
     React.useEffect(() => {
         props.defaultValue && setValue(props.defaultValue);
     }, [props.defaultValue]);
-    return (React__default['default'].createElement(MainWrap, { ref: refWrap },
+    return (React__default['default'].createElement(MainWrap, { ref: refWrap, className: "w-color-selector" },
         React__default['default'].createElement(MainValue, { color: value, height: props.height || 30, width: props.width || 30, onClick: () => setShow(!show) }),
-        show && (React__default['default'].createElement(MainSelector, { ref: refMenu, show: true },
-            React__default['default'].createElement(Selector, { fnSelected: handleChange, select: value })))));
+        show && (React__default['default'].createElement(MainSelector, { ref: refMenu, show: true, dark: props.dark, className: "w-color-selector-container" },
+            React__default['default'].createElement(Selector, { fnSelected: handleChange, select: value, fnClosePopup: hiddenDropdownWhenClick }),
+            React__default['default'].createElement(ButtonControl, null,
+                React__default['default'].createElement("button", { onClick: hiddenDropdownWhenClick },
+                    React__default['default'].createElement("img", { src: img, alt: "w-color" })))))));
 }
 const MainWrap = styled__default['default'].div `
   display: block;
@@ -724,11 +740,48 @@ const MainSelector = styled__default['default'].div `
   position: absolute;
   z-index: -1;
   visibility: hidden;
+  box-sizing: border-box;
+  border-radius: 0.5em;
+  width: 15em;
+  padding: 0.5em;
+
+  ${(props) => props.dark
+    ? `
+    background-color: #1a1a1a;
+    color: #fff;
+  `
+    : `
+    background-color: #fff;
+    color: inherit;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.12);
+  `}
 
   ${({ show }) => show &&
     `
     z-index: 999;
   `};
+`;
+const ButtonControl = styled__default['default'].div `
+  position: absolute;
+  right: 5px;
+  top: 5px;
+
+  button {
+    border: none;
+    border-radius: 7px;
+    opacity: 0.8;
+    padding: 2px 5px;
+    cursor: pointer;
+
+    img {
+      width: 10px;
+      height: 10px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 `;
 
 module.exports = App;

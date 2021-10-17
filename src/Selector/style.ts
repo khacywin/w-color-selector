@@ -1,23 +1,7 @@
 import styled from 'styled-components';
 
-interface PropsTheme {
-  light?: boolean;
-  dark?: boolean;
-}
-const WColor = styled.div<PropsTheme>`
+const WColor = styled.div`
   position: relative;
-  box-sizing: border-box;
-  border-radius: .5em;
-  width: 15em;
-  padding: .5em;
-  ${props => props.dark ? `
-    background-color: #1a1a1a;
-    color: #fff;
-  ` : `
-    background-color: #fff;
-    color: inherit;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);
-  `}
 `;
 
 const WColorHeading = styled.div`

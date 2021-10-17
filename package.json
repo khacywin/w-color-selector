@@ -59,7 +59,9 @@
     "typescript": "^3.9.7"
   },
   "resolutions": {
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@storybook/preset-typescript": "^3.0.0"
+  }
 }

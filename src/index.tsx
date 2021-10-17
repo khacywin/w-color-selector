@@ -9,6 +9,7 @@ import React, {
 import Selector from "./Selector";
 import _key from "./util/_key";
 import _t from "./util/_t";
+import icon_close from "./icons/close.svg";
 import styled from "styled-components";
 
 interface PropsMainValue {
@@ -19,6 +20,8 @@ interface PropsMainValue {
 
 interface PropsMainSelector {
   show: boolean;
+  dark?: boolean;
+  light?: boolean;
 }
 
 interface Props {
@@ -26,6 +29,7 @@ interface Props {
   defaultValue?: string;
   width?: number;
   height?: number;
+  dark?: boolean;
 }
 function App(props: Props) {
   const [value, setValue] = useState("#54478c");
@@ -116,7 +120,7 @@ function App(props: Props) {
   }, [props.defaultValue]);
 
   return (
-    <MainWrap ref={refWrap}>
+    <MainWrap ref={refWrap} className="w-color-selector">
       <MainValue
         color={value}
         height={props.height || 30}
@@ -124,8 +128,22 @@ function App(props: Props) {
         onClick={() => setShow(!show)}
       />
       {show && (
-        <MainSelector ref={refMenu} show={true}>
-          <Selector fnSelected={handleChange} select={value} />
+        <MainSelector
+          ref={refMenu}
+          show={true}
+          dark={props.dark}
+          className="w-color-selector-container"
+        >
+          <Selector
+            fnSelected={handleChange}
+            select={value}
+            fnClosePopup={hiddenDropdownWhenClick}
+          />
+          <ButtonControl>
+            <button onClick={hiddenDropdownWhenClick}>
+              <img src={icon_close} alt="w-color" />
+            </button>
+          </ButtonControl>
         </MainSelector>
       )}
     </MainWrap>
@@ -153,10 +171,49 @@ const MainSelector = styled.div<PropsMainSelector>`
   position: absolute;
   z-index: -1;
   visibility: hidden;
+  box-sizing: border-box;
+  border-radius: 0.5em;
+  width: 15em;
+  padding: 0.5em;
+
+  ${(props) =>
+    props.dark
+      ? `
+    background-color: #1a1a1a;
+    color: #fff;
+  `
+      : `
+    background-color: #fff;
+    color: inherit;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.12);
+  `}
 
   ${({ show }) =>
     show &&
     `
     z-index: 999;
   `};
+`;
+
+const ButtonControl = styled.div`
+  position: absolute;
+  right: 5px;
+  top: 5px;
+
+  button {
+    border: none;
+    border-radius: 7px;
+    opacity: 0.8;
+    padding: 2px 5px;
+    cursor: pointer;
+
+    img {
+      width: 10px;
+      height: 10px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 `;

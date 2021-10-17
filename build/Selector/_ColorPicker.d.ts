@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 interface Props {
     hex: (color: string) => void;
 }
-declare const _default: React.MemoExoticComponent<(props: Props) => JSX.Element>;
+declare const _default: React.MemoExoticComponent<({ hex }: Props) => JSX.Element>;
 export default _default;

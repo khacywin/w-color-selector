@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { WColor, WColorAdd, WColorHeading } from './style';
-import icon_add from './../icons/add.svg';
-import _t from './../util/_t';
-import Container from './_Container';
+
 import ColorPicker from './_ColorPicker';
+import Container from './_Container';
+import _t from './../util/_t';
+import icon_add from './../icons/add.svg';
 
 interface Props {
   select?: string;
-  dark?: boolean;
   fnSelected: (color: string) => void;
+  fnClosePopup: () => void;
 }
 
 export default React.memo((props: Props) => {
@@ -50,8 +51,6 @@ export default React.memo((props: Props) => {
   }
 
   function addColour(color: string) {
-    setValue(color);
-
     if (template.indexOf(color) < 0 && colour.indexOf(color) < 0) {
       let _colour: any[] = [...colour, color];
       setColour(_colour);
@@ -82,11 +81,12 @@ export default React.memo((props: Props) => {
 
   function selectColor(color: string) {
     setValue(color);
-    props.fnSelected(color)
+    props.fnSelected(color);
+    props.fnClosePopup();
   }
 
   return (
-    <WColor dark={!!props.dark}>
+    <WColor>
       {/**
        ** Wrap color picker
        */}
